@@ -8,6 +8,7 @@ module com.example.grafosjava {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
+    requires com.brunomnsilva.smartgraph;
 
     opens com.example.grafosjava to javafx.fxml;
     exports com.example.grafosjava;
