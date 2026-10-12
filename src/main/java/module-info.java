@@ -13,4 +13,5 @@ module com.example.grafosjava {
     opens com.example.grafosjava to javafx.fxml;
     exports com.example.grafosjava;
     exports com.example.grafosjava.model;
+    exports com.example.grafosjava.logic;
 }
