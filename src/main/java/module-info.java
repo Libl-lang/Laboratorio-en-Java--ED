@@ -1,17 +1,13 @@
 module com.example.grafosjava {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web;
 
-    requires org.controlsfx.controls;
-    requires com.dlsc.formsfx;
-    requires net.synedra.validatorfx;
-    requires org.kordamp.ikonli.javafx;
-    requires eu.hansolo.tilesfx;
     requires com.brunomnsilva.smartgraph;
 
     opens com.example.grafosjava to javafx.fxml;
     exports com.example.grafosjava;
     exports com.example.grafosjava.model;
     exports com.example.grafosjava.logic;
+    exports com.example.grafosjava.ui;
+    opens com.example.grafosjava.ui to javafx.fxml;
 }

@@ -103,3 +103,32 @@ This should help you understand which styles you can apply to each type of eleme
     -fx-opacity: 1;
     -fx-fill: transparent; /* important to keep for curved edges */
 }
+
+/* ===========================================================================
+ * Estilos para resaltar la ruta más corta calculada por Dijkstra.
+ * Se aplican acumulativamente (addStyleClass) sobre las clases base
+ * "vertex" y "edge".
+ * =========================================================================== */
+
+.shortest-path-vertex {
+    -fx-stroke-width: 6;
+    -fx-stroke: #2E7D32;          /* borde verde oscuro */
+    -fx-fill: #66BB6A;             /* relleno verde claro */
+    -fx-effect: dropshadow(gaussian, rgba(46,125,50,0.6), 16, 0.4, 0, 0);
+}
+
+.shortest-path-edge {
+    -fx-stroke-width: 6;
+    -fx-stroke: #2E7D32;          /* arista verde oscuro */
+    -fx-opacity: 1;
+    -fx-fill: transparent;        /* importante para curvas */
+    -fx-stroke-line-cap: round;
+    -fx-effect: dropshadow(gaussian, rgba(46,125,50,0.4), 10, 0.3, 0, 0);
+}
+
+/* Estilo para el label de la arista resaltada */
+.shortest-path-edge .edge-label {
+    -fx-font: bold 9pt "sans-serif";
+    -fx-fill: #1B5E20;
+    -fx-background-color: #C8E6C9;
+}

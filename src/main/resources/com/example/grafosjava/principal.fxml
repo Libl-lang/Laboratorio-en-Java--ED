@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.grafosjava.ui.ControladorPrincipal">
+
+    <!-- ===== Panel superior: entrada de matriz ===== -->
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #F8F9FA;">
+            <padding>
+                <Insets top="12" right="12" bottom="8" left="12"/>
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Nº de vértices:" style="-fx-font-weight: bold;"/>
+                <Spinner fx:id="spinnerVertices" prefWidth="70"/>
+                <Button text="Crear matriz" onAction="#onCreateMatrix"/>
+                <Button text="Generar grafo" onAction="#onGenerateGraph" fx:id="btnGenerate" disable="true"/>
+                <Button text="Limpiar resaltado" onAction="#onClearHighlight"/>
+            </HBox>
+
+            <GridPane fx:id="gridMatrizEditor" hgap="3" vgap="3">
+                <padding>
+                    <Insets top="4" right="4" bottom="4" left="4"/>
+                </padding>
+            </GridPane>
+        </VBox>
+    </top>
+
+    <!-- ===== Área central: visualización del grafo ===== -->
+    <center>
+        <StackPane fx:id="stackGrafo" style="-fx-background-color: #F4FFFB;">
+            <Label text="Genere un grafo para visualizarlo"
+                   style="-fx-font-size: 18px; -fx-text-fill: #999;"/>
+        </StackPane>
+    </center>
+
+    <!-- ===== Panel lateral: lista de pesos y Dijkstra ===== -->
+    <right>
+        <VBox spacing="14" style="-fx-background-color: #F8F9FA;">
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12"/>
+            </padding>
+
+            <!-- Lista de aristas y pesos -->
+            <Label text="Lista de aristas (pesos)" style="-fx-font-weight: bold; -fx-font-size: 13;"/>
+            <TableView fx:id="tablaPesos" prefHeight="220" VBox.vgrow="ALWAYS"/>
+
+            <Separator/>
+
+            <!-- Controles de Dijkstra -->
+            <Label text="Camino más corto (Dijkstra)" style="-fx-font-weight: bold; -fx-font-size: 13;"/>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Origen:"/>
+                <ComboBox fx:id="comboOrigen" prefWidth="90"/>
+            </HBox>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Destino:"/>
+                <ComboBox fx:id="comboDestino" prefWidth="90"/>
+            </HBox>
+
+            <Button text="Calcular camino más corto"
+                    onAction="#onCalcularDijkstra"
+                    fx:id="btnDijkstra" disable="true"/>
+
+            <VBox spacing="4">
+                <Label text="Resultado:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblResultado" wrapText="true" style="-fx-font-size: 13;"/>
+            </VBox>
+        </VBox>
+    </right>
+
+        <!-- ===== Barra de estado ===== -->
+    <bottom>
+        <Label fx:id="lblStatus">
+            <padding>
+                <Insets top="8" right="8" bottom="8" left="8"/>
+            </padding>
+        </Label>
+    </bottom>
+
+</BorderPane>

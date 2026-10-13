@@ -199,6 +199,8 @@ public class ConversorSmartGraph {
                 new SmartGraphPanel<>(grafo, new SmartCircularSortedPlacementStrategy());
         // El peso se muestra como etiqueta; panel.update() refresca su texto sola.
         nuevo.setEdgeLabelProvider(a -> String.valueOf(a.getPeso()));
+        // El nombre visible del vértice se muestra como etiqueta.
+        nuevo.setVertexLabelProvider(v -> v.getNombre());
         return nuevo;
     }
 
